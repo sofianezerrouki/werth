@@ -1,0 +1,295 @@
+/* ================= general ================= */
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	padding: 6px 0px 10px;
+	background: ghostwhite repeat-x 0% 0%;
+	font-family: Trebuchet MS;
+	font-size: 13px;
+}
+
+p {
+	margin: 10px 0px 5px;
+	text-align: justify;
+	line-height: 14px;
+}
+
+
+#container {
+	margin: 0px auto;
+	width: 850px;
+}
+
+
+/* Page Header */
+
+#header_container {
+	width: 850px;
+	height: 205px;
+	margin-bottom: 3px;
+	background: url('../images/Header_TR.png');
+	background-repeat:no-repeat;
+	/*background: #5f92d2 repeat-x 0px 0px;*/
+	/*border:2px solid grey;*/
+}
+
+#header_container_en {
+	width: 850px;
+	height: 205px;
+	margin-bottom: 3px;
+	background: url('../images/Header_EN.png');
+	background-repeat:no-repeat;
+	/*background: #5f92d2 repeat-x 0px 0px;*/
+	/*border:2px solid grey;*/
+}
+
+#header_container_ar {
+	width: 850px;
+	height: 205px;
+	margin-bottom: 3px;
+	background: url('../images/Header_AR.png');
+	background-repeat:no-repeat;
+	/*background: #5f92d2 repeat-x 0px 0px;*/
+	/*border:2px solid grey;*/
+}
+
+#flag  {float: none;
+position: absolute static; 
+padding-top:175px;
+padding-left:600px;
+/*margin: 175px auto 0 620px;*/
+/*background: #edeaea;*/
+height: 30px;
+width: 200px;
+color: #15317E;
+font-size:16px;
+font-weight:bold;
+}
+
+#header_container .sb-inner { background:#5f92d2; }
+#header_container .sb-shadow { background:black; }
+#header_container .sb-border { background:grey;}
+
+#header_container h1 {
+	padding: 3px 0px 0px;
+	font-family: Trebuchet MS;
+	font-size: 30px;
+}
+
+#header_container h2 {
+	padding: 3px 0px 0px;
+	font-family: Trebuchet MS;
+	font-size: 26px;
+}
+
+    .hovermenu ul{
+    font: bold 13px arial;
+    padding-left: 0;
+    margin-left: 0;
+    height: 30px;
+    }
+
+    .hovermenu ul li{
+    list-style: none;
+    display: inline;
+    }
+
+    .hovermenu ul li a{
+    padding: 2px 0.5em;
+    text-decoration: none;
+    float: left;
+    color: black;
+    background-color: #E0ECF8;
+    border: 2px solid #E0ECF8;
+    }
+
+    .hovermenu ul li a:hover{
+    background-color: #A9D0F5;
+    border-style: outset;
+    }
+
+    html>body .hovermenu ul li a:active{ /* Apply mousedown effect only to NON IE browsers */
+    border-style: inset;
+    }
+
+/* Main Content */
+
+#maincontent_container 
+{
+    background: #E6E6FA; /* Lavender; /*#c1e6ff; Lavender, #0063a8*/
+    color: black;
+    margin-top: 4px;
+    /*border : 1px solid #d5dfec;*/
+    /*float: left; /* right*/
+    text-align: left;
+	/*border:2px solid grey;*/
+}
+/*#maincontent_container .sb-inner { background:#c1e6ff; }
+#maincontent_container .sb-shadow { background:black; }
+#maincontent_container .sb-border { background:grey;}
+*/
+
+/* aþaðýdaki (div.code) maincontent_container div'in köþelerinin yuvarlak olmasý ve gölge olmasý için kullanýlýyor */
+
+#maincontent 
+{
+	margin: 7px 10px 10px 16px;
+	width: 766;
+}
+
+#maincontent h3 {
+	padding: 3px 0px 0px 10px;
+	font-size: 22px;
+}
+
+#maincontent h2 {
+	padding: 3px 0px 0px 100px;
+	font-size: 17px;
+}
+
+#maincontent h5 {
+	padding: 3px 0px 0px 40px;
+	font-weight:normal;
+	font-size: 14px;
+}
+
+#maincontent p {
+	padding: 3px 1px 1px 20px;
+	line-height: 150%;
+	font-size: 13px;
+}
+
+#maincontent th {
+	font-family: Trebuchet MS;
+	font-size: 13px;
+}
+
+#maincontent td {
+	font-family: Trebuchet MS;
+	font-size: 13px;
+}
+
+#maincontent ul {
+	padding: 3px 15px 1px 50px;
+	font-size: 13px;
+/*	list-style-type: disk;*/
+}
+
+#maincontent li {
+	padding: 3px 1px 1px;
+	font-size: 13px;
+/*	list-style-type: disk;*/
+}
+
+#maincontent li.ar {
+	padding: 3px 10px 1px 10;
+	font-size: 20px;
+	font-family:Times New Roman;
+}
+
+#maincontent h3.ar {
+	padding: 3px 0px 0px 10px;
+	font-size: 28px;
+	font-family:Times New Roman;
+}
+
+#maincontent h4.ar {
+	padding: 3px 10px 0px 0px;
+	font-weight:bold;
+	font-size: 24px;
+	font-family:Times New Roman;
+}
+
+
+/* Page Footer */
+
+#page_footer {
+  clear :both;
+  position: relative ;
+	margin: 5px;
+	width: 940px;
+	float: right;
+    color:#2554C7;
+    border-top:5px solid gray;
+	text-align: center;
+	font: 12px "Trebuchet MS","Tahoma";
+}
+
+  div#footer
+  {
+  clear :both;
+  position: relative ;
+  width: 900px;
+  margin-top:15px;
+  border-top:5px solid gray;
+  font: 12px "Trebuchet MS","Tahoma";
+  color:#2554C7;
+  text-align: center;
+  }
+
+
+/* === image table === */
+table.imagetable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.imagetable caption {
+	background:#b5cfd2 url('../images/cell-blue.jpg');
+	font-size:14px;
+	font-weight:bold;
+	border-width: 1px;
+	padding: 11px;
+	border-style: solid;
+	border-color: #999999;
+}
+
+table.imagetable th {
+	background:#b5cfd2 url('../images/cell-blue.jpg');
+	border-width: 1px;
+	padding: 11px;
+	border-style: solid;
+	border-color: #999999;
+}
+table.imagetable td {
+	background:#dcddc0 url('../images/cell-grey.jpg');
+	border-width: 1px;
+	padding: 11px;
+	border-style: solid;
+	border-color: #999999;
+}
+
+/* === Yellow Hover === */
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+table.hovertable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+/* === EOF === */
+

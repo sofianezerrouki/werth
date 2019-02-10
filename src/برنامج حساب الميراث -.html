@@ -1,0 +1,789 @@
+
+<!-- saved from url=(0061)http://www.kurandersleri.net/miras/ar/Miras_Erkek_ar.html#pay -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1" runat="server"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="حساب الميراث , حساب الميراث الشرعي , برنامج حساب المواريث , الميراث برنامج , الميراث الشرعي , برنامج تقسيم الميراث , برنامج حساب الميراث
+     , خطوات تقسيم الميراث , لا خطأ في القرآن , برنامج لحساب الميراث , برنامج المواريث , برنامج حساب الميراث والتركة
+     , تحميل برنامج الميراث , مسائل الإرث , تقسيم المواريث , أفضل برنامج لحساب المواريث , برنامج الميراث والزكاة
+     , التقسيم الشرعي للميراث , القرآن الكريم حساب الميراث , قسمة الميراث , توزيع الميراث القرآن والسنة">
+
+    <title>برنامج حساب الميراث - المتوفى</title>
+   
+    <link rel="stylesheet" type="text/css" href="./برنامج حساب الميراث -_files/style.css">
+    <link rel="stylesheet" type="text/css" href="./برنامج حساب الميراث -_files/highslide.css">
+    <script type="text/javascript" src="./برنامج حساب الميراث -_files/jquery.js.téléchargement"></script>
+    <script type="text/javascript" src="./برنامج حساب الميراث -_files/highslide-with-gallery.js.téléchargement"></script>
+
+    <script type="text/javascript" src="./برنامج حساب الميراث -_files/shadedborder.js.téléchargement"></script>  <style type="text/css">  .sb, .sbi, .sb *, .sbi * { position:relative; z-index:1; }  * html .sb, * html .sbi { height:1%; }  .sbi { display:inline-block; }  .sb-inner { background:#ddd; }  .sb-shadow { background:#000; }  .sb-border { background:#bbb; }  </style>
+    <script type="text/javascript">
+        var myBorder = RUZEE.ShadedBorder.create({ corner: 9, shadow: 20, border: 0 });
+    </script>     
+
+<script type="text/javascript">
+    hs.graphicsDir = '../css/highslide/graphics/';
+    hs.align = 'center';
+    hs.transitions = ['expand', 'crossfade'];
+    hs.wrapperClassName = 'rounded-white'; //'dark borderless floating-caption';
+    hs.fadeInOut = true;
+    //hs.numberPosition = 'caption';
+    hs.dimmingOpacity = 0.75;
+
+    // Add the controlbar
+    if (hs.addSlideshow) hs.addSlideshow({
+        //slideshowGroup: 'group1',
+        interval: 5000,
+        repeat: false,
+        useControls: true,
+        fixedControls: 'fit',
+        overlayOptions: {
+            opacity: .75,
+            position: 'bottom center',
+            hideOnMouseOut: true
+        }
+    });
+</script>
+
+    <style type="text/css">
+        <!--
+        A{
+        text-decoration:none;
+        color: navy;
+        }
+        --> 
+    </style>
+    
+    <script language="javascript" type="text/javascript">
+        function EnsureNumeric() {
+            var key = window.event.keyCode;
+            if (key < 48 || key > 57)
+                window.event.returnValue = false;
+        }
+    </script>
+ 
+<script type="text/javascript">
+
+    function PayHesapla() {
+        d = document;
+
+        //html nesnelerinden alınan değerler...
+        Mal = parseInt(d.getElementById('MalVarligi').value);
+        var ECs = parseInt(d.getElementById('ErkekCocuk').selectedIndex);
+        var KCs = parseInt(d.getElementById('KizCocuk').selectedIndex);
+        var EKs = parseInt(d.getElementById('ErkekKardes').selectedIndex);
+        var KKs = parseInt(d.getElementById('KizKardes').selectedIndex);
+        var BabaVar = parseInt(d.getElementById('Baba').selectedIndex);
+        var AnneVar = parseInt(d.getElementById('Anne').selectedIndex);
+        var EsVar = parseInt(d.getElementById('Es').selectedIndex);
+
+        //hesaplamalarda kullanılacak değişkenler...
+        var ECp = 0;
+        var KCp = 0;
+        var Ap = 0;
+        var Bp = 0;
+        var EsHesap = 0;
+        var Es1p = 0;
+        var Es2p = 0;
+        var Es3p = 0;
+        var Es4p = 0;
+        var EKp = 0;
+        var KKp = 0;
+        var Xp = 0;
+        var Mdan = 0;
+        var KisiBasiPay = 0;
+        var AraHesap = 0;
+
+        //koşullara göre hesaplama işlemleri...
+        //alert('if dışı ');
+        if (ECs > 0) {
+            //1.Koşul:
+
+            //Erkek çocuğun payı:
+            ECp = ECs * (2 * (Mal / (2 * ECs + KCs)));
+            //Kız çocuğun payı:
+            KCp = (KCs > 0 ? KCs * (Mal / (2 * ECs + KCs)) : 0);
+        }
+        else if (ECs == 0 && KCs >= 2) {
+            //2.Koşul:
+
+            KCp = 2 * (Mal / 3);
+            //ikinci evre...
+            Mdan = Mal - KCp;
+            Ap = (AnneVar == 1 ? (1 / 6) * Mdan : 0);
+            Bp = (BabaVar == 1 ? (1 / 6) * Mdan : 0);
+            //üçüncü evre...
+            //Mdan = Mal - (KCp + Ap + Bp); ***(04/09/2012 tarihinde hesap dışı bırakıldı.)
+            EsHesap = (EsVar > 0 ? (1 / 8) * Mdan : 0);
+        }
+        else if (ECs == 0 && KCs == 1) {
+            //3.Koşul:
+
+            KCp = Mal / 2;
+            //ikinci evre...
+            Mdan = Mal - KCp;
+            Ap = (AnneVar == 1 ? (1 / 6) * Mdan : 0);
+            Bp = (BabaVar == 1 ? (1 / 6) * Mdan : 0);
+            //üçüncü evre...
+            //Mdan = Mal - (KCp + Ap + Bp); ***(04/09/2012 tarihinde hesap dışı bırakıldı.)
+            EsHesap = (EsVar > 0 ? (1 / 8) * Mdan : 0);
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && EKs == 0 && KKs == 0) {
+            //4.Koşul:
+            //(03/08/2012 tarihinde değiştirildi. EKs==0 & KKs==0 ilave edildi.)
+            Ap = (AnneVar == 1 ? (1 / 3) * Mal : 0);
+            //ikinci evre...
+            //Mdan = Mal - Ap; ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Bp = Mal - (Ap + (EsHesap * EsVar));
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && (EKs + KKs) >= 2) {
+            //5.Koşul:
+            //Eski koşul: (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs >= 1 && KKs >= 1)
+
+            Ap = (1 / 6) * Mal;
+            AraHesap = (1 / 3) * Mal;
+            EKp = EKs * (2 * (AraHesap / (2 * EKs + KKs)));
+            KKp = KKs * (AraHesap / (2 * EKs + KKs));
+            //ikinci evre...
+            //Mdan = Mal - (Ap + EKp + KKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Ap += Mal - (Ap + EKp + KKp + (EsHesap * EsVar)); //***(04/09/2012 tarihinde ilave edildi.)
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 1 && KKs == 0) {
+            //6.Koşul: 
+
+            Ap = (1 / 3) * Mal;
+            EKp = (1 / 6) * Mal;
+            //ikinci evre...
+            //Mdan = Mal - (Ap + EKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Ap += Mal - (Ap + EKp + (EsHesap * EsVar)); //***(04/09/2012 tarihinde ilave edildi.)
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 1) {
+            //7.Koşul:
+
+            Ap = (1 / 3) * Mal;
+            KKp = (1 / 6) * Mal;
+            //ikinci evre...
+            //Mdan = Mal - (Ap + KKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Ap += Mal - (Ap + KKp + (EsHesap * EsVar)); //***(04/09/2012 tarihinde ilave edildi.)
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 1) {
+            //8.Koşul:
+
+            KKp = (1 / 2) * Mal;
+            //ikinci evre...
+            //Mdan = Mal - KKp; ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs >= 1 && KKs == 0) {
+            //9.Koşul:
+
+            //(10/09/2012 tarihinde hesaplama mantığı değiştirildi)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            //ikinci evre...
+            EKp = Mal - (EsHesap * EsVar);
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs >= 2) {
+            //10.Koşul:
+
+            //(10/09/2012 tarihinde hesaplama mantığı değiştirildi)
+            //* Mdan = Mal / 2;
+            //* KKp = (2 / 3) * Mdan;
+            //ikinci evre...
+            //Mdan = Mal - KKp; ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            //* EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            //Yukarıdaki kodlarda (*) ile işaretli olanlar aşağıdaki hesaplamalarla değiştirildi.
+            //(21/11/2012) Tarihinde aşağıdaki kodlarla değiştirildi.
+            EsHesap = (EsVar > 0 ? (1 / 4) * (Mal / 2) : 0);
+            Mdan = Mal - (EsHesap * EsVar);
+            KKp = (2 / 3) * Mdan;
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs > 0 && KKs > 0) {
+            //11.Koşul:
+
+            //(10/09/2012 tarihinde hesaplama mantığı değiştirildi)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            //ikinci evre...
+            //Mdan = Mal - (EsHesap * EsVar); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal - (EsHesap * EsVar);
+            EKp = EKs * (2 * (Mdan / (2 * EKs + KKs)));
+            KKp = KKs * (Mdan / (2 * EKs + KKs));
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 0) {
+            //12.Koşul:
+
+            Ap = (1 / 3) * Mal;
+            //Mdan = 2 * Mal / 3; ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Ap += Mal - (Ap + (EsHesap * EsVar)); //***(04/09/2012 tarihinde ilave edildi.)
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 0) {
+            //13.Koşul:
+
+            //(10/09/2012 tarihinde hesaplama mantığı değiştirildi)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && (EKs + KKs) >= 2) {
+            //14.Koşul:
+            //(03/08/2012 tarihinde ilave edildi.)
+
+            Ap = (1 / 6) * Mal;
+            AraHesap = (1 / 3) * Mal;
+            EKp = EKs * (2 * (AraHesap / (2 * EKs + KKs)));
+            KKp = KKs * (AraHesap / (2 * EKs + KKs));
+            //ikinci evre...
+            //Mdan = Mal - (Ap + EKp + KKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Bp = Mal - (Ap + EKp + KKp + (EsHesap * EsVar));
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 1 && KKs == 0) {
+            //15.Koşul:
+            //(03/08/2012 tarihinde ilave edildi.)
+            Ap = (1 / 3) * Mal;
+            EKp = (1 / 6) * Mal;
+            //ikinci evre...
+            //Mdan = Mal - (Ap + EKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Bp = Mal - (Ap + EKp + (EsHesap * EsVar));
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 0 && KKs == 1) {
+            //16.Koşul:
+            //(03/08/2012 tarihinde ilave edildi.)
+            Ap = (1 / 3) * Mal;
+            KKp = (1 / 6) * Mal;
+            //ikinci evre...
+            //Mdan = Mal - (Ap + KKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Bp = Mal - (Ap + KKp + (EsHesap * EsVar));
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && (EKs + KKs) >= 2) {
+            //17.Koşul:
+            //(03/08/2012 tarihinde ilave edildi.)
+
+            //Ap = (1 / 6) * Mal;  //Hesaba gerek yok çünkü Anne zaten yok.
+            AraHesap = (1 / 3) * Mal;
+            EKp = EKs * (2 * (AraHesap / (2 * EKs + KKs)));
+            KKp = KKs * (AraHesap / (2 * EKs + KKs));
+            //ikinci evre...
+            //Mdan = Mal - (Ap + EKp + KKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Bp = Mal - (Ap + EKp + KKp + (EsHesap * EsVar));
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 1 && KKs == 0) {
+            //18.Koşul:
+            //(03/08/2012 tarihinde ilave edildi.)
+            //Ap = (1 / 3) * Mal;  //Hesaba gerek yok çünkü Anne zaten yok.
+            EKp = (1 / 6) * Mal;
+            //ikinci evre...
+            //Mdan = Mal - (Ap + EKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Bp = Mal - (Ap + EKp + (EsHesap * EsVar));
+        }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 0 && KKs == 1) {
+            //19.Koşul:
+            //(03/08/2012 tarihinde ilave edildi.)
+            //Ap = (1 / 3) * Mal;  //Hesaba gerek yok çünkü Anne zaten yok.
+            KKp = (1 / 6) * Mal;
+            //ikinci evre...
+            //Mdan = Mal - (Ap + KKp); ***(04/09/2012 tarihinde itibaren Mdan aşağıdaki gibi hesaplanıyor.)
+            Mdan = Mal / 2;
+            EsHesap = (EsVar > 0 ? (1 / 4) * Mdan : 0);
+            Bp = Mal - (Ap + KKp + (EsHesap * EsVar));
+        }
+
+        //hesaplama işlemleri sonu.
+
+        //Hesaplama sonuçları label nesnelerine dolduruluyor...
+        //alert('ECp: ' + ECp);
+
+        //Erkek çocuğun payı:
+        if (ECp > 0) {
+            d.getElementById('ECp').style.color = "red";
+            KisiBasiPay = ECp / ECs;
+        }
+        else { d.getElementById('ECp').style.color = "black"; }
+        if (ECp > 0) { d.getElementById('ECp').innerHTML = Math.round(KisiBasiPay * 100) / 100 + (ECs > 1 ? " x " + ECs + "<br\> (" + Math.round(ECp * 100) / 100 + ")" : ""); }
+        else { d.getElementById('ECp').innerHTML = 0; }
+
+        //Kız çocuğun payı:
+        if (KCp > 0) {
+            d.getElementById('KCp').style.color = "red";
+            KisiBasiPay = KCp / KCs;
+        }
+        else { d.getElementById('KCp').style.color = "black"; }
+        if (KCp > 0) { d.getElementById('KCp').innerHTML = Math.round(KisiBasiPay * 100) / 100 + (KCs > 1 ? " x " + KCs + "<br\> (" + Math.round(KCp * 100) / 100 + ")" : ""); }
+        else { d.getElementById('KCp').innerHTML = 0; }
+
+        //Annenin payı:
+        if (Ap > 0) { d.getElementById('Ap').style.color = "red"; }
+        else { d.getElementById('Ap').style.color = "black"; }
+        d.getElementById('Ap').innerHTML = Math.round(Ap * 100) / 100;
+
+        //Babanın payı:
+        if (Bp > 0) { d.getElementById('Bp').style.color = "red"; }
+        else { d.getElementById('Bp').style.color = "black"; }
+        d.getElementById('Bp').innerHTML = Math.round(Bp * 100) / 100;
+
+        //Eş(ler)inin payı:
+        //1.Eş:
+        if (EsVar > 0 && EsHesap > 0) {
+            d.getElementById('Es1p').style.color = "red";
+            Es1p = EsHesap;
+        }
+        else { d.getElementById('Es1p').style.color = "black"; }
+        d.getElementById('Es1p').innerHTML = Math.round(Es1p * 100) / 100;
+        //2.Eş:
+        if (EsVar > 1 && EsHesap > 0) {
+            d.getElementById('Es2p').style.color = "red";
+            Es2p = EsHesap;
+        }
+        else { d.getElementById('Es2p').style.color = "black"; }
+        d.getElementById('Es2p').innerHTML = Math.round(Es2p * 100) / 100;
+        //3.Eş:
+        if (EsVar > 2 && EsHesap > 0) {
+            d.getElementById('Es3p').style.color = "red";
+            Es3p = EsHesap;
+        }
+        else { d.getElementById('Es3p').style.color = "black"; }
+        d.getElementById('Es3p').innerHTML = Math.round(Es3p * 100) / 100;
+        //4.Eş:
+        if (EsVar > 3 && EsHesap > 0) {
+            d.getElementById('Es4p').style.color = "red";
+            Es4p = EsHesap;
+        }
+        else { d.getElementById('Es4p').style.color = "black"; }
+        d.getElementById('Es4p').innerHTML = Math.round(Es4p * 100) / 100;
+
+        //Erkek Kardeşlerin toplam payı:
+        if (EKp > 0) {
+            d.getElementById('EKp').style.color = "red";
+            KisiBasiPay = EKp / EKs;
+        }
+        else {
+            d.getElementById('EKp').style.color = "black";
+        }
+        if (EKp > 0) { d.getElementById('EKp').innerHTML = Math.round(KisiBasiPay * 100) / 100 + (EKs > 1 ? " x " + EKs + "<br\> (" + Math.round(EKp * 100) / 100 + ")" : ""); }
+        else { d.getElementById('EKp').innerHTML = 0; }
+
+        //Kız Kardeşlerin toplam payı:
+        if (KKp > 0) {
+            d.getElementById('KKp').style.color = "red";
+            KisiBasiPay = KKp / KKs;
+        }
+        else { d.getElementById('KKp').style.color = "black"; }
+        if (KKp > 0) { d.getElementById('KKp').innerHTML = Math.round(KisiBasiPay * 100) / 100 + (KKs > 1 ? " x " + KKs + "<br\> (" + Math.round(KKp * 100) / 100 + ")" : ""); }
+        else { d.getElementById('KKp').innerHTML = 0; }
+
+        //Artan mal hesaplanıyor...
+        Xp = Mal - (ECp + KCp + Ap + Bp + Es1p + Es2p + Es3p + Es4p + EKp + KKp);
+
+        //alert('Xp: ' + Xp);
+
+        //Artan mal:
+        //Bazen küsuratlı hesaplamalarda 1.xx gibi artan olduğu için Xp>0 yerine Xp>2 kontrolü yapılıyor.
+        if (Xp > 2) { d.getElementById('Xp').style.color = "red"; }
+        else { d.getElementById('Xp').style.color = "black"; }
+        d.getElementById('Xp').innerHTML = Math.round(Xp * 100) / 100;
+
+        //Şablon imajının kontrol ve güncellenmesi...
+        var SablonImg = "../Sablonlar_Erkek/ar/";
+        if (ECs == 1 && KCs == 0) { SablonImg += "ESimg_p209_ar.png"; }
+        else if (ECs == 2 && KCs == 0) { SablonImg += "ESimg_p206_ar.png"; }
+        else if (ECs == 3 && KCs == 0) { SablonImg += "ESimg_p201_ar.png"; }
+        else if (ECs == 1 && KCs == 1) { SablonImg += "ESimg_p208_ar.png"; }
+        else if (ECs == 2 && KCs == 1) { SablonImg += "ESimg_p205_ar.png"; }
+        else if (ECs == 3 && KCs == 1) { SablonImg += "ESimg_p200_ar.png"; }
+        else if (ECs == 1 && KCs == 2) { SablonImg += "ESimg_p207_ar.png"; }
+        else if (ECs == 2 && KCs == 2) { SablonImg += "ESimg_p204_ar.png"; }
+        else if (ECs == 3 && KCs == 2) { SablonImg += "ESimg_p199_ar.png"; }
+        else if (ECs == 1 && KCs == 3) { SablonImg += "ESimg_p203_ar.png"; }
+        else if (ECs == 2 && KCs == 3) { SablonImg += "ESimg_p202_ar.png"; }
+        else if (ECs == 3 && KCs == 3) { SablonImg += "ESimg_p143_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 1 && EsVar == 4) { SablonImg += "ESimg_p147_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 1 && EsVar == 4) { SablonImg += "ESimg_p213_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 1 && EsVar == 4) { SablonImg += "ESimg_p214_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 0 && EsVar == 4) { SablonImg += "ESimg_p215_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 0 && EsVar == 4) { SablonImg += "ESimg_p216_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 0 && EsVar == 4) { SablonImg += "ESimg_p217_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 1 && EsVar == 4) { SablonImg += "ESimg_p218_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 1 && EsVar == 4) { SablonImg += "ESimg_p219_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 1 && EsVar == 4) { SablonImg += "ESimg_p220_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 0 && EsVar == 4) { SablonImg += "ESimg_p221_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 0 && EsVar == 4) { SablonImg += "ESimg_p222_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 0 && EsVar == 4) { SablonImg += "ESimg_p223_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 1 && EsVar == 3) { SablonImg += "ESimg_p224_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 1 && EsVar == 2) { SablonImg += "ESimg_p225_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 1 && EsVar == 1) { SablonImg += "ESimg_p226_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 1 && EsVar == 0) { SablonImg += "ESimg_p227_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 1 && EsVar == 3) { SablonImg += "ESimg_p228_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 1 && EsVar == 2) { SablonImg += "ESimg_p229_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 1 && EsVar == 1) { SablonImg += "ESimg_p230_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 1 && EsVar == 0) { SablonImg += "ESimg_p231_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 1 && EsVar == 3) { SablonImg += "ESimg_p232_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 1 && EsVar == 2) { SablonImg += "ESimg_p233_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 1 && EsVar == 1) { SablonImg += "ESimg_p234_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 1 && EsVar == 0) { SablonImg += "ESimg_p235_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 0 && EsVar == 3) { SablonImg += "ESimg_p236_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 0 && EsVar == 2) { SablonImg += "ESimg_p237_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 0 && EsVar == 1) { SablonImg += "ESimg_p238_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 1 && AnneVar == 0 && EsVar == 0) { SablonImg += "ESimg_p239_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 0 && EsVar == 3) { SablonImg += "ESimg_p240_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 0 && EsVar == 2) { SablonImg += "ESimg_p241_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 0 && EsVar == 1) { SablonImg += "ESimg_p242_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 1 && AnneVar == 0 && EsVar == 0) { SablonImg += "ESimg_p243_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 0 && EsVar == 3) { SablonImg += "ESimg_p244_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 0 && EsVar == 2) { SablonImg += "ESimg_p245_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 0 && EsVar == 1) { SablonImg += "ESimg_p246_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 1 && AnneVar == 0 && EsVar == 0) { SablonImg += "ESimg_p247_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 1 && EsVar == 3) { SablonImg += "ESimg_p248_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 1 && EsVar == 2) { SablonImg += "ESimg_p249_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 1 && EsVar == 1) { SablonImg += "ESimg_p250_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 1 && EsVar == 0) { SablonImg += "ESimg_p251_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 1 && EsVar == 3) { SablonImg += "ESimg_p252_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 1 && EsVar == 2) { SablonImg += "ESimg_p253_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 1 && EsVar == 1) { SablonImg += "ESimg_p254_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 1 && EsVar == 0) { SablonImg += "ESimg_p255_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 1 && EsVar == 3) { SablonImg += "ESimg_p256_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 1 && EsVar == 2) { SablonImg += "ESimg_p257_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 1 && EsVar == 1) { SablonImg += "ESimg_p258_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 1 && EsVar == 0) { SablonImg += "ESimg_p259_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 0 && EsVar == 3) { SablonImg += "ESimg_p260_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 0 && EsVar == 2) { SablonImg += "ESimg_p261_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 0 && EsVar == 1) { SablonImg += "ESimg_p262_ar.png"; }
+        else if (ECs == 0 && KCs == 3 && BabaVar == 0 && AnneVar == 0 && EsVar == 0) { SablonImg += "ESimg_p263_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 0 && EsVar == 3) { SablonImg += "ESimg_p264_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 0 && EsVar == 2) { SablonImg += "ESimg_p265_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 0 && EsVar == 1) { SablonImg += "ESimg_p266_ar.png"; }
+        else if (ECs == 0 && KCs == 2 && BabaVar == 0 && AnneVar == 0 && EsVar == 0) { SablonImg += "ESimg_p267_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 0 && EsVar == 3) { SablonImg += "ESimg_p268_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 0 && EsVar == 2) { SablonImg += "ESimg_p269_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 0 && EsVar == 1) { SablonImg += "ESimg_p270_ar.png"; }
+        else if (ECs == 0 && KCs == 1 && BabaVar == 0 && AnneVar == 0 && EsVar == 0) { SablonImg += "ESimg_p271_ar.png"; }
+        //İlave Şablonlar: (08/08/2012 tarihinde ilave edildi.)
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 4) { SablonImg += "ESimg_p151_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && (EKs + KKs >= 2) && EsVar == 4) { SablonImg += "ESimg_p276_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p277_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p278_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 4) { SablonImg += "ESimg_p279_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 4) { SablonImg += "ESimg_p280_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 3) { SablonImg += "ESimg_p281_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && (EKs + KKs >= 2) && EsVar == 3) { SablonImg += "ESimg_p282_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 2) { SablonImg += "ESimg_p283_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && (EKs + KKs >= 2) && EsVar == 2) { SablonImg += "ESimg_p284_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 1) { SablonImg += "ESimg_p285_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && (EKs + KKs >= 2) && EsVar == 1) { SablonImg += "ESimg_p286_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 0) { SablonImg += "ESimg_p287_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && (EKs + KKs >= 2) && EsVar == 0) { SablonImg += "ESimg_p288_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p289_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p290_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p291_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p292_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p293_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p294_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p295_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p296_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 3) { SablonImg += "ESimg_p297_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 3) { SablonImg += "ESimg_p298_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 2) { SablonImg += "ESimg_p299_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 2) { SablonImg += "ESimg_p300_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 1) { SablonImg += "ESimg_p301_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 1) { SablonImg += "ESimg_p302_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 0) { SablonImg += "ESimg_p303_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 0) { SablonImg += "ESimg_p304_ar.png"; }
+        //
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EsVar == 4) { SablonImg += "ESimg_p325_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EsVar == 4) { SablonImg += "ESimg_p326_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EsVar == 3) { SablonImg += "ESimg_p327_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EsVar == 2) { SablonImg += "ESimg_p328_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EsVar == 1) { SablonImg += "ESimg_p329_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 1 && EsVar == 0) { SablonImg += "ESimg_p330_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EsVar == 3) { SablonImg += "ESimg_p331_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EsVar == 2) { SablonImg += "ESimg_p332_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EsVar == 1) { SablonImg += "ESimg_p333_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 1 && AnneVar == 0 && EsVar == 0) { SablonImg += "ESimg_p334_ar.png"; }
+        //Template 4:
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 4) { SablonImg += "ESimg_p305_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p306_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 4) { SablonImg += "ESimg_p307_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p308_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 3) { SablonImg += "ESimg_p309_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 2) { SablonImg += "ESimg_p310_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 1) { SablonImg += "ESimg_p311_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && (EKs + KKs >= 2) && EsVar == 0) { SablonImg += "ESimg_p312_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p313_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p314_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p315_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 1 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p316_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 3) { SablonImg += "ESimg_p317_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 2) { SablonImg += "ESimg_p318_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 1) { SablonImg += "ESimg_p319_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 1 && EsVar == 0) { SablonImg += "ESimg_p320_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p321_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p322_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p323_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 1 && EKs == 0 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p324_ar.png"; }
+        //Template 5:
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs > 0 && KKs > 0 && EsVar == 4) { SablonImg += "ESimg_p155_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs >= 3 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p337_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 2 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p338_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p339_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs > 0 && KKs > 0 && EsVar == 3) { SablonImg += "ESimg_p340_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs > 0 && KKs > 0 && EsVar == 2) { SablonImg += "ESimg_p341_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs > 0 && KKs > 0 && EsVar == 1) { SablonImg += "ESimg_p342_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs > 0 && KKs > 0 && EsVar == 0) { SablonImg += "ESimg_p343_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs >= 3 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p344_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs >= 3 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p345_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs >= 3 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p346_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs >= 3 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p347_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 2 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p348_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 2 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p349_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 2 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p350_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 2 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p351_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p352_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p353_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p354_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 1 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p355_ar.png"; }
+        //Template 6:
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs > 2 && EsVar == 4) { SablonImg += "ESimg_p159_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 2 && EsVar == 4) { SablonImg += "ESimg_p359_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 4) { SablonImg += "ESimg_p360_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs > 2 && EsVar == 3) { SablonImg += "ESimg_p361_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs > 2 && EsVar == 2) { SablonImg += "ESimg_p362_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs > 2 && EsVar == 1) { SablonImg += "ESimg_p363_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs > 2 && EsVar == 0) { SablonImg += "ESimg_p364_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 2 && EsVar == 3) { SablonImg += "ESimg_p365_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 2 && EsVar == 2) { SablonImg += "ESimg_p366_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 2 && EsVar == 1) { SablonImg += "ESimg_p367_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 2 && EsVar == 0) { SablonImg += "ESimg_p368_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 3) { SablonImg += "ESimg_p369_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 2) { SablonImg += "ESimg_p370_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 1) { SablonImg += "ESimg_p371_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 1 && EsVar == 0) { SablonImg += "ESimg_p372_ar.png"; }
+        //Template 7:
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 0 && EsVar == 4) { SablonImg += "ESimg_p163_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 0 && EsVar == 3) { SablonImg += "ESimg_p375_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 0 && EsVar == 2) { SablonImg += "ESimg_p376_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 0 && EsVar == 1) { SablonImg += "ESimg_p377_ar.png"; }
+        else if (ECs == 0 && KCs == 0 && BabaVar == 0 && AnneVar == 0 && EKs == 0 && KKs == 0 && EsVar == 0) { SablonImg += "ESimg_p378_ar.png"; }
+        else { SablonImg = ""; }
+
+        if (SablonImg == "") {
+            d.getElementById("ESimg").style.height = "20";
+            d.getElementById("ESimg").style.visibility = "hidden";
+            d.getElementById("ESlink").href = "#";
+        }
+        else {
+            d.getElementById("ESimg").style.visibility = "visible";
+            d.getElementById("ESimg").src = SablonImg;
+            d.getElementById("ESimg").style.height = "450";
+            d.getElementById("ESlink").href = SablonImg;
+        }
+
+    }
+
+
+</script>
+ 
+<style type="text/css">.highslide img {cursor: url(../css/highslide/graphics/zoomin.cur), pointer !important;}</style></head>
+  
+  <body id="body">
+    <form id="FormErkek" action="http://www.kurandersleri.net/miras/ar/Miras_Erkek_ar.html">
+      <center>
+      <div id="container">
+
+        <div id="header_container_ar">
+            <div id="flag">
+                <h4><a href="http://www.quraanicstudies.com/" target="_blank">www.quraanicstudies.com</a></h4>
+            </div>
+        </div>
+
+        <!-- Start of Menu area -->
+        <div class="hovermenu" style="position:absolute static; padding-left:310">
+          <ul>
+            <li><a href="http://www.kurandersleri.net/miras/en/Miras_en.html">English&nbsp;<img src="./برنامج حساب الميراث -_files/flagUK.png" alt="English" style="vertical-align:middle; border:0"></a></li>
+            <li><a href="http://www.kurandersleri.net/miras/Miras.html">Türkçe&nbsp;<img src="./برنامج حساب الميراث -_files/flagTR.png" alt="Türkçe" style="vertical-align:middle; border:0"></a></li>
+            <li><a href="http://www.kurandersleri.net/miras/ar/Miras_Hakkinda_ar.html">ملخص عن البرنامج</a></li>
+            <li><a href="http://www.kurandersleri.net/miras/ar/Miras_Ayetler_ar.html">آيات الميراث</a></li>
+            <li><a href="./برنامج حساب الميراث -_files/Miras_Erkek_ar.html">المتوفى</a></li>
+            <li><a href="http://www.kurandersleri.net/miras/ar/Miras_Kadin_ar.html">المتوفاة</a></li>
+            <li><a href="http://www.kurandersleri.net/miras/ar/Miras_ar.html">الصفحة الرئيسية</a></li>
+          </ul>
+        </div>
+        <!-- End of Menu area -->
+
+        <!-- Start of Main Content Area -->
+        <div id="maincontent_container" class=" sb" style="position: relative; background: transparent;"><div class="sb-gen" style="position: absolute; left: 0px; top: 0px; width: 20px; height: 20px; overflow: hidden; margin: 0px; padding: 0px;"><div style="position:absolute; top:6px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.007528337936039575;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.039531364385072765;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0699462381130862;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05660188679433964;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08212201246570905;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10557280900008403;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.145599625468247;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16184726928798943;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17537887487646786;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19843902290593007;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19999999999999996;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.013845853834199007;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.060585288597203246;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.11399774266653251;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1368661749183966;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.14413786156881547;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01511421982038963;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.034339604208601715;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05131670194948623;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.06592291538652972;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08758562045526708;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09446148618625827;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09999999999999998;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0037570577414361983;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.017655864780575015;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.048685120477977684;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.050000000000000044;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:19px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:18px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:17px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:16px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:15px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:14px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:13px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:1px; left:12px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:1px; left:11px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:1px; left:10px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:1px; left:9px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:1px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:2px; left:8px; width:1px; height:18px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -2px;" class="sb-inner"></div><div style="position:absolute; top:1px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:2px; left:7px; width:1px; height:18px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -2px;" class="sb-inner"></div><div style="position:absolute; top:2px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -2px; opacity:0.5147186257614305;" class="sb-inner"></div><div style="position:absolute; top:3px; left:6px; width:1px; height:17px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -3px;" class="sb-inner"></div><div style="position:absolute; top:3px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -3px; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:4px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -4px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:5px; left:5px; width:1px; height:15px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -5px;" class="sb-inner"></div><div style="position:absolute; top:4px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -4px; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:5px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -5px; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:6px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -6px; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:7px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -7px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:8px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -8px;" class="sb-inner"></div><div style="position:absolute; top:9px; left:4px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -9px;" class="sb-inner"></div></div><div class="sb-gen" style="position: absolute; top: 0px; width: 20px; height: 20px; overflow: hidden; margin: 0px; padding: 0px; right: 0px;"><div style="position:absolute; top:6px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.007528337936039575;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.039531364385072765;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0699462381130862;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05660188679433964;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08212201246570905;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10557280900008403;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.145599625468247;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16184726928798943;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17537887487646786;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19843902290593007;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19999999999999996;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.013845853834199007;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.060585288597203246;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.11399774266653251;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1368661749183966;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.14413786156881547;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01511421982038963;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.034339604208601715;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05131670194948623;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.06592291538652972;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08758562045526708;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09446148618625827;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09999999999999998;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0037570577414361983;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.017655864780575015;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.048685120477977684;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.050000000000000044;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:0px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:1px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:2px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:3px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:4px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:5px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:6px; width:1px; height:20px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px;" class="sb-inner"></div><div style="position:absolute; top:1px; left:7px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:1px; left:8px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:1px; left:9px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:1px; left:10px; width:1px; height:19px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px;" class="sb-inner"></div><div style="position:absolute; top:0px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -0px; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:1px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:2px; left:11px; width:1px; height:18px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -2px;" class="sb-inner"></div><div style="position:absolute; top:1px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -1px; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:2px; left:12px; width:1px; height:18px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -2px;" class="sb-inner"></div><div style="position:absolute; top:2px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -2px; opacity:0.5147186257614305;" class="sb-inner"></div><div style="position:absolute; top:3px; left:13px; width:1px; height:17px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -3px;" class="sb-inner"></div><div style="position:absolute; top:3px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -3px; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:4px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -4px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:5px; left:14px; width:1px; height:15px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -5px;" class="sb-inner"></div><div style="position:absolute; top:4px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -4px; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:5px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -5px; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:6px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -6px; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:7px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -7px; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:8px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -8px;" class="sb-inner"></div><div style="position:absolute; top:9px; left:15px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-position:0 -9px;" class="sb-inner"></div></div><div class="sb-gen" style="position: absolute; width: 20px; height: 20px; overflow: hidden; margin: 0px; padding: 0px; bottom: 0px; left: 0px;"><div style="position:absolute; top:19px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.050000000000000044;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09999999999999998;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19999999999999996;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.25;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.30000000000000004;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.35;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.4;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.048685120477977684;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19843902290593007;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.24833518108135455;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.29821655761909005;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.34807975947973513;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3979202710603852;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09446148618625827;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.14413786156881547;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.24336270247892222;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2928932188134524;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3423526781017048;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3917237469701781;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08758562045526708;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1368661749183966;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.23514707296108228;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2841089468361824;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.33291679679368325;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.381534156157351;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17537887487646786;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.22379126518699877;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2719890110719482;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.31992647456322776;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3675444679663241;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.017655864780575015;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.06592291538652972;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.11399774266653251;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16184726928798943;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2566965626340747;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3035805861407941;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.35;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0037570577414361983;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05131670194948623;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.145599625468247;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19222527892982444;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2384226894136091;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2841089468361824;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3291796067500631;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.034339604208601715;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17235273213765756;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2173762078750736;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.26175884698832996;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.30537780052750985;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.34807975947973513;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01511421982038963;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.060585288597203246;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10557280900008403;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.23678312387631262;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2788897449072022;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.31992647456322776;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08212201246570905;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12535721577320502;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16783415114533806;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.25;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.28936647982240526;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.013845853834199007;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05660188679433964;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.13976747329573735;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17993902665716366;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.21897503240933458;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2566965626340747;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0699462381130862;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10977530926175716;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2221825406947977;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2566965626340747;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.039531364385072765;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1154096993522934;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1514718625761431;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.21897503240933458;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.007528337936039575;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1154096993522934;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17993902665716366;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01005050633883342;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10977530926175716;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.13976747329573735;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16783415114533806;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2173762078750736;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.007528337936039575;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.039531364385072765;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0699462381130862;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12535721577320502;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17235273213765756;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19222527892982444;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.22379126518699877;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.23514707296108228;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05660188679433964;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08212201246570905;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10557280900008403;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.145599625468247;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16184726928798943;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17537887487646786;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19843902290593007;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19999999999999996;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.013845853834199007;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.060585288597203246;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.11399774266653251;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1368661749183966;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.14413786156881547;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01511421982038963;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.034339604208601715;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05131670194948623;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.06592291538652972;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08758562045526708;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09446148618625827;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09999999999999998;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0037570577414361983;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.017655864780575015;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.048685120477977684;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.050000000000000044;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:19px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:18px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:17px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:16px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:15px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:14px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:13px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:12px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:0px; left:11px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:0px; left:10px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:0px; left:9px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:10px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:0px; left:8px; width:1px; height:10px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:10px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:0px; left:7px; width:1px; height:10px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:9px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.5147186257614305;" class="sb-inner"></div><div style="position:absolute; top:0px; left:6px; width:1px; height:9px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:8px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:7px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:0px; left:5px; width:1px; height:7px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:7px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:6px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:5px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:4px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:3px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:4px; width:1px; height:3px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div></div><div class="sb-gen" style="position: absolute; width: 20px; height: 20px; overflow: hidden; margin: 0px; padding: 0px; right: 0px; bottom: 0px;"><div style="position:absolute; top:19px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.050000000000000044;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09999999999999998;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19999999999999996;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.25;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.30000000000000004;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.35;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:0px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.4;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.048685120477977684;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19843902290593007;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.24833518108135455;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.29821655761909005;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.34807975947973513;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:1px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3979202710603852;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09446148618625827;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.14413786156881547;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.24336270247892222;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2928932188134524;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3423526781017048;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:2px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3917237469701781;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08758562045526708;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1368661749183966;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.23514707296108228;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2841089468361824;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.33291679679368325;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:3px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.381534156157351;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17537887487646786;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.22379126518699877;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2719890110719482;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.31992647456322776;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:4px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3675444679663241;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.017655864780575015;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.06592291538652972;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.11399774266653251;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16184726928798943;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2566965626340747;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3035805861407941;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:5px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.35;" class="sb-shadow"></div><div style="position:absolute; top:19px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0037570577414361983;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05131670194948623;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.145599625468247;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19222527892982444;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2384226894136091;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2841089468361824;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:6px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.3291796067500631;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.034339604208601715;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17235273213765756;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2173762078750736;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.26175884698832996;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.30537780052750985;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.34807975947973513;" class="sb-shadow"></div><div style="position:absolute; top:18px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01511421982038963;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.060585288597203246;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10557280900008403;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.23678312387631262;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2788897449072022;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.31992647456322776;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08212201246570905;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12535721577320502;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16783415114533806;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.25;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.28936647982240526;" class="sb-shadow"></div><div style="position:absolute; top:17px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.013845853834199007;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05660188679433964;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.13976747329573735;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17993902665716366;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.21897503240933458;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2566965626340747;" class="sb-shadow"></div><div style="position:absolute; top:16px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0699462381130862;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10977530926175716;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2221825406947977;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2566965626340747;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.039531364385072765;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1154096993522934;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1514718625761431;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.21897503240933458;" class="sb-shadow"></div><div style="position:absolute; top:15px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.007528337936039575;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1154096993522934;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17993902665716366;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:14px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01005050633883342;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10977530926175716;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.13976747329573735;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16783415114533806;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.2173762078750736;" class="sb-shadow"></div><div style="position:absolute; top:13px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.007528337936039575;" class="sb-shadow"></div><div style="position:absolute; top:12px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.039531364385072765;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0699462381130862;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12535721577320502;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17235273213765756;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19222527892982444;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.20943058495790523;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.22379126518699877;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.23514707296108228;" class="sb-shadow"></div><div style="position:absolute; top:11px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05660188679433964;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08212201246570905;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.10557280900008403;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.145599625468247;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.16184726928798943;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.17537887487646786;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.18605897019501472;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1937742251701451;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19843902290593007;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:16px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.19999999999999996;" class="sb-shadow"></div><div style="position:absolute; top:10px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.013845853834199007;" class="sb-shadow"></div><div style="position:absolute; top:9px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.060585288597203246;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08076118445748826;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.11399774266653251;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.12678754017135108;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1368661749183966;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.14413786156881547;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.1485306817036799;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:17px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.15000000000000002;" class="sb-shadow"></div><div style="position:absolute; top:8px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.01511421982038963;" class="sb-shadow"></div><div style="position:absolute; top:7px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.034339604208601715;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.05131670194948623;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.06592291538652972;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.07804555427071125;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.08758562045526708;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09446148618625827;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09861218113400272;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:18px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.09999999999999998;" class="sb-shadow"></div><div style="position:absolute; top:6px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.0037570577414361983;" class="sb-shadow"></div><div style="position:absolute; top:5px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.017655864780575015;" class="sb-shadow"></div><div style="position:absolute; top:4px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.029175608052619983;" class="sb-shadow"></div><div style="position:absolute; top:3px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.03823079691643283;" class="sb-shadow"></div><div style="position:absolute; top:2px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.04475134127286007;" class="sb-shadow"></div><div style="position:absolute; top:1px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.048685120477977684;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:19px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:0;  opacity:0.050000000000000044;" class="sb-shadow"></div><div style="position:absolute; top:0px; left:0px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:1px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:2px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:3px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:4px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:5px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:6px; width:1px; height:12px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:7px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:7px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:8px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:0px; left:8px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:9px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:0px; left:9px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:10px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:0px; left:10px; width:1px; height:11px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:11px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:10px; left:11px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:0px; left:11px; width:1px; height:10px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:10px; left:12px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:0px; left:12px; width:1px; height:10px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:9px; left:13px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.5147186257614305;" class="sb-inner"></div><div style="position:absolute; top:0px; left:13px; width:1px; height:9px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:8px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.3976747329573733;" class="sb-inner"></div><div style="position:absolute; top:7px; left:14px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:0px; left:14px; width:1px; height:7px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:7px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.05572809000084078;" class="sb-inner"></div><div style="position:absolute; top:6px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.4559962546824696;" class="sb-inner"></div><div style="position:absolute; top:5px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.7537887487646788;" class="sb-inner"></div><div style="position:absolute; top:4px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none; opacity:0.9377422517014509;" class="sb-inner"></div><div style="position:absolute; top:3px; left:15px; width:1px; height:1px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div><div style="position:absolute; top:0px; left:15px; width:1px; height:3px; overflow:hidden; margin:0; padding:0; z-index:2;background-image:none;" class="sb-inner"></div></div><div class="sb-gen" style="position: absolute; width: 100%; height: 20px; top: 0px; left: 0px; overflow: hidden; margin: 0px; padding: 0px;"><div class="sb-gen" style="position: relative; height: 20px; margin: 0px 20px; overflow: hidden; padding: 0px;"><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; top:0px; height:0px;" class="sb-border"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; background-position-y:0; top:0px; height:20px;" class="sb-inner"></div></div></div><div class="sb-gen" style="position: absolute; top: -20px; left: 0px; width: 100%; height: 100%; overflow: hidden; padding: 0px; margin: 0px;"><div style="position:relative; top:40px; height:2048px;  margin:0 4px 0 4px;  padding:0; overflow:hidden; background-position:0 -20px;" class="sb-inner"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; left:0px; opacity:0.05;" class="sb-shadow"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; left:1px; opacity:0.1;" class="sb-shadow"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; left:2px; opacity:0.15;" class="sb-shadow"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; left:3px; opacity:0.2;" class="sb-shadow"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; right:0px; opacity:0.05;" class="sb-shadow"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; right:1px; opacity:0.1;" class="sb-shadow"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; right:2px; opacity:0.15;" class="sb-shadow"></div><div style="position:absolute; width:1px; top:40px; height:2048px; padding:0; margin:0; right:3px; opacity:0.2;" class="sb-shadow"></div></div><div class="sb-gen" style="position: absolute; left: 0px; bottom: 0px; width: 100%; height: 20px; overflow: hidden; margin: 0px; padding: 0px;"><div class="sb-gen" style="position: relative; height: 20px; margin: 0px 20px; overflow: hidden; padding: 0px;"><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:0px; opacity:0.05;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:1px; opacity:0.1;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:2px; opacity:0.15;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:3px; opacity:0.2;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:4px; opacity:0.25;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:5px; opacity:0.3;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:6px; opacity:0.35;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:7px; opacity:0.4;" class="sb-shadow"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; bottom:8px; height:0px;" class="sb-border"></div><div style="height:1px; overflow:hidden; position:absolute; margin:0; padding:0; width:100%; left:0px; background-image:none; bottom:8px; height:12px;" class="sb-inner"></div></div></div>
+        <div id="maincontent">
+          <center>
+            <p></p>
+            <table class="imagetable" width="350">
+              <caption style="font-family:times; font-size:26px">معلومات عن المتوفى</caption>
+              <tbody><tr>
+                <td align="right" width="50px"><input type="text" id="MalVarligi" value="1000" dir="rtl" onkeypress="EnsureNumeric()" maxlength="10"></td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">قيمة التركة</td>
+              </tr>
+              <tr>
+                <td align="right" width="50px">
+                  <select id="ErkekCocuk">
+                    <option selected="selected">لا</option>
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                    <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                    <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                  </select>
+                </td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">عدد الأبناء</td>
+              </tr>
+              <tr>
+                <td align="right" width="50px">
+                  <select id="KizCocuk">
+                    <option selected="selected">لا</option>
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                    <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                    <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                  </select>
+                </td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">عدد البنات</td>
+              </tr>
+              <tr>
+                <td align="right" width="50px">
+                  <select id="Baba">
+                    <option selected="selected">لا</option>
+                    <option>نعم</option>
+                  </select>
+                </td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">الأب</td>
+              </tr>
+              <tr>
+                <td align="right" width="50px">
+                  <select id="Anne">
+                    <option selected="selected">لا</option>
+                    <option>نعم</option>
+                  </select>
+                </td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">الأم</td>
+              </tr>
+              <tr>
+                <td align="right" width="50px">
+                  <select id="ErkekKardes">
+                    <option selected="selected">لا</option>
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                    <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                    <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                  </select>
+                </td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">عدد الإخوة</td>
+              </tr>
+              <tr>
+                <td align="right" width="50px">
+                  <select id="KizKardes">
+                    <option selected="selected">لا</option>
+                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                    <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                    <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                    <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                  </select>
+                </td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">عدد الأخوات</td>
+              </tr>
+              <tr>
+                <td align="right" width="50px">
+                  <select id="Es">
+                    <option selected="selected">لا</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </td>
+                <td align="left" width="200px" style="font-family:times; font-size:22px">عدد الزوجات</td>
+              </tr>
+              <!--tr>
+                <td colspan="2" align="center"><input type="button" value="Pay Hesapla" onclick="PayHesapla()" /></td>
+              </tr-->
+              <tr>
+                <td colspan="2" align="center"><a href="http://www.kurandersleri.net/miras/ar/Miras_Erkek_ar.html#pay"><img src="./برنامج حساب الميراث -_files/PayHesapla1_ar.png" alt="" onclick="PayHesapla()" onmouseover="this.src=&#39;../images/PayHesapla2_ar.png&#39;" onmouseout="this.src=&#39;../images/PayHesapla1_ar.png&#39;" style="border:0"></a></td>
+              </tr>
+            </tbody></table>
+            
+            <br>
+            <a id="pay"></a>
+            <table class="imagetable" width="500">
+              <caption style="font-family:times; font-size:26px">قسمة التركة</caption>
+              <tbody><tr>
+                <td align="center" width="200px" id="lblFatherShare" style="font-family:times; font-size:22px">نصيب الأب</td>
+                <td align="center" width="200px" id="lblMotherShare" style="font-family:times; font-size:22px">نصيب الأم</td>
+                <td align="center" width="200px" id="lblDaughtersShare" style="font-family:times; font-size:22px">نصيب البنات</td>
+                <td align="center" width="200px" id="lblSonsShare" style="font-family:times; font-size:22px">نصيب الأبناء</td>
+              </tr>
+              <tr>
+                <td align="center" width="200px"><label id="Bp" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="Ap" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="KCp" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="ECp" style="font-size:medium; color:Black;">0</label></td>
+              </tr>
+              <tr>
+                <td align="center" width="200px" id="lbl4thWifeShare" style="font-family:times; font-size:22px">نصيب الزوجة الرابعة</td>
+                <td align="center" width="200px" id="lbl3rdWifeShare" style="font-family:times; font-size:22px">نصيب الزوجة الثالثة</td>
+                <td align="center" width="200px" id="lbl2ndWifeShare" style="font-family:times; font-size:22px">نصيب الزوجة الثانية</td>
+                <td align="center" width="200px" id="lbl1stWifeShare" style="font-family:times; font-size:22px">نصيب الزوجة الأولى</td>
+              </tr>
+              <tr>
+                <td align="center" width="200px"><label id="Es4p" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="Es3p" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="Es2p" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="Es1p" style="font-size:medium; color:Black;">0</label></td>
+              </tr>
+
+              <tr>
+                <td colspan="2" align="center" width="200px" id="lblRemaining" style="font-family:times; font-size:22px">المتبقية</td>
+                <td align="center" width="200px" id="lblSistersShare" style="font-family:times; font-size:22px">نصيب الأخوات</td>
+                <td align="center" width="200px" id="lblBrothersShare" style="font-family:times; font-size:22px">نصيب الإخوة</td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center" width="200px"><label id="Xp" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="KKp" style="font-size:medium; color:Black;">0</label></td>
+                <td align="center" width="200px"><label id="EKp" style="font-size:medium; color:Black;">0</label></td>
+              </tr>
+            </tbody></table>
+
+            <p></p>
+
+            <a id="ESlink" href="./برنامج حساب الميراث -_files/Miras_Erkek_ar.html" class="highslide" onclick="return hs.expand(this)">
+            <img id="ESimg" src="./برنامج حساب الميراث -_files/Miras_Erkek_ar.html" alt="Highslide JS" style="visibility:hidden; border:5px solid gray; background-color:White; width:700px; height:20px;" title="Click to enlarge"></a>
+
+            <p></p>
+
+        </center>
+        
+        </div>
+      </div>
+
+      </div>
+
+      </center>
+    </form>
+
+    <script type="text/javascript">
+        myBorder.render('maincontent_container');
+    </script> 
+
+  
+
+<div class="highslide-container" style="padding: 0px; border: none; margin: 0px; position: absolute; left: 0px; top: 0px; width: 100%; z-index: 1001; direction: ltr;"><a class="highslide-loading" title="Click to cancel" href="javascript:;" style="position: absolute; top: -9999px; opacity: 0.75; z-index: 1;">Loading...</a><div style="display: none;"></div><table cellspacing="0" style="padding: 0px; border: none; margin: 0px; visibility: hidden; position: absolute; border-collapse: collapse; width: 0px;"><tbody style="padding: 0px; border: none; margin: 0px;"><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) 0px 0px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -40px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) -20px 0px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -80px; height: 20px; width: 20px;"></td><td class="drop-shadow highslide-outline" style="padding: 0px; border: none; margin: 0px; position: relative;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) -20px -80px; height: 20px; width: 20px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -20px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) 0px -60px; height: 20px; width: 20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; background: url(&quot;http://www.kurandersleri.net/miras/css/highslide/graphics/outlines/drop-shadow.png&quot;) -20px -20px; height: 20px; width: 20px;"></td></tr></tbody></table><img src="./برنامج حساب الميراث -_files/drop-shadow.png" style="padding: 0px; border: none; margin: 0px; position: absolute; top: -9999px;"></div></body></html>
